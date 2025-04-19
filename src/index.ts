@@ -12,7 +12,7 @@ app.get("/", (_req, res) => {
   res.send("Shipment Tracker API is running!");
 });
 
-app.use("/api/v1/",Shipmentrouter);
+app.use("/api/v1",Shipmentrouter);
 
 app.listen(PORT, () => {
   connectDB()

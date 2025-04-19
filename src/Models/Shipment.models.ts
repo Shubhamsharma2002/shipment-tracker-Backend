@@ -1,12 +1,6 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
-// TypeScript interface for better IntelliSense
-export interface IShipment extends Document {
-  productName: string;
-  deliveryAddress: string;
-  createdAt?: Date;
-  updatedAt?: Date;
-}
+
 
 const ShipmentSchema: Schema = new Schema(
   {
@@ -33,6 +27,6 @@ const ShipmentSchema: Schema = new Schema(
 );
 
 
-const Shipment = mongoose.model<IShipment>('Shipment', ShipmentSchema);
+const Shipment = mongoose.model('Shipment', ShipmentSchema);
 
 export default Shipment;
