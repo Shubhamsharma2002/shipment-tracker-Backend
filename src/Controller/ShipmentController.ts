@@ -55,3 +55,46 @@ export const createShipment = async (req: Request, res: Response): Promise<void>
     }
   };
   
+
+ export  const updateShipment = async (req: Request, res: Response): Promise<void> => {
+    const { shipmentId } = req.params;
+    const { productName, deliveryAddress, origin } = req.body;
+  
+    try {
+      // Find the shipment and update it
+      const updatedShipment = await Shipment.findByIdAndUpdate(
+        shipmentId,
+        { productName, deliveryAddress, origin },
+        { new: true }
+      );
+  
+      if (!updatedShipment) {
+        res.status(404).json({ message: 'Shipment not found' });
+        return;
+      }
+  
+      res.status(200).json(updatedShipment);
+    } catch (error) {
+      res.status(500).json({ message: 'Error updating shipment', error });
+    }
+  };
+  
+  // Delete shipment by shipmentId
+  export const deleteShipment = async (req: Request, res: Response): Promise<void> => {
+    const { shipmentId } = req.params;
+  
+    try {
+      // Find and delete the shipment
+      const deletedShipment = await Shipment.findByIdAndDelete(shipmentId);
+  
+      if (!deletedShipment) {
+        res.status(404).json({ message: 'Shipment not found' });
+        return
+      }
+  
+      res.status(200).json({ message: 'Shipment deleted successfully' });
+    } catch (error) {
+      res.status(500).json({ message: 'Error deleting shipment', error });
+    }
+  };
+  
