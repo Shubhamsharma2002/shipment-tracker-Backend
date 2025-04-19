@@ -21,26 +21,16 @@ const seedData = async () => {
     console.log('Cleared old shipment data');
 
     const shipments = [
-      {
-        productName: "iPhone 15 Pro Max",
-        deliveryAddress: "145 morna Sector 34, noida, Up",
-      },
-      {
-        productName: "Sony WH-1000XM5 Headphones",
-        deliveryAddress: "155 morna Sector 35, noida, Up",
-      },
-      {
-        productName: "Dell XPS 15 Laptop",
-        deliveryAddress: "185 morna Sector 34, noida, Up",
-      },
-      {
-        productName: "PlayStation 5 Console",
-        deliveryAddress: "145 morna Sector 62, noida, Up",
-      },
-      {
-        productName: "Apple Watch Series 9",
-        deliveryAddress: "145 morna Sector 3, noida, Up",
-      },
+      { _id: 'SH1001', productName: 'Laptop', deliveryAddress: '123 Main St, City, Country', origin: 'Warehouse A' },
+      { _id: 'SH1002', productName: 'Smartphone', deliveryAddress: '456 Elm St, City, Country', origin: 'Warehouse B' },
+      { _id: 'SH1003', productName: 'Tablet', deliveryAddress: '789 Oak St, City, Country', origin: 'Warehouse C' },
+      { _id: 'SH1004', productName: 'Headphones', deliveryAddress: '101 Pine St, City, Country', origin: 'Warehouse D' },
+      { _id: 'SH1005', productName: 'Smartwatch', deliveryAddress: '202 Birch St, City, Country', origin: 'Warehouse E' },
+      { _id: 'SH1006', productName: 'Camera', deliveryAddress: '303 Cedar St, City, Country', origin: 'Warehouse F' },
+      { _id: 'SH1007', productName: 'Printer', deliveryAddress: '404 Maple St, City, Country', origin: 'Warehouse G' },
+      { _id: 'SH1008', productName: 'Monitor', deliveryAddress: '505 Willow St, City, Country', origin: 'Warehouse H' },
+      { _id: 'SH1009', productName: 'Keyboard', deliveryAddress: '606 Pine St, City, Country', origin: 'Warehouse I' },
+      { _id: 'SH1010', productName: 'Mouse', deliveryAddress: '707 Oak St, City, Country', origin: 'Warehouse J' }
     ];
 
     await Shipment.insertMany(shipments);

@@ -10,6 +10,10 @@ export interface IShipment extends Document {
 
 const ShipmentSchema: Schema = new Schema(
   {
+    _id: {
+      type: String,
+      required: true,
+    },
     productName: {
       type: String,
       required: true,
@@ -17,6 +21,10 @@ const ShipmentSchema: Schema = new Schema(
     deliveryAddress: {
       type: String,
       required: true,
+    },
+    origin: {
+      type: String,
+      required: true,  // Origin is now mandatory
     },
   },
   {
