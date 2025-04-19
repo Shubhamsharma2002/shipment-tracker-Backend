@@ -10,6 +10,7 @@ const StatusUpdateSchema = new mongoose.Schema({
   status: {
     type: String,
     required: true,
+    enum: ['PICKUP', 'IN_TRANSIT', 'DELIVERED'],
   },
   location: {
     type: String,

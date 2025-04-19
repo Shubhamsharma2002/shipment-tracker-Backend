@@ -2,6 +2,7 @@ import 'dotenv/config';
 import express from "express";
 import connectDB from "./Db/dbConnection";
 import Shipmentrouter from './Routes';
+import Statusrouter from './Routes/Status';
 
 const app = express();
 const PORT =  8000;
@@ -13,6 +14,7 @@ app.get("/", (_req, res) => {
 });
 
 app.use("/api/v1",Shipmentrouter);
+app.use('/api/v1', Statusrouter);
 
 app.listen(PORT, () => {
   connectDB()
