@@ -1,4 +1,6 @@
+import 'dotenv/config';
 import express from "express";
+import connectDB from "./Db/dbConnection";
 
 const app = express();
 const PORT =  8000;
@@ -10,5 +12,6 @@ app.get("/", (_req, res) => {
 });
 
 app.listen(PORT, () => {
+  connectDB()
   console.log(`Server listening on http://localhost:${PORT}`);
 });

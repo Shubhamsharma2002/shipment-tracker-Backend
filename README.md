@@ -22,10 +22,21 @@ A simple backend API for tracking shipments and their statuses, built with **Exp
 ```bash
 shipment-tracker-backend/
 ├── src/
-│   └── index.ts        # Entry point
+│   ├── controllers/
+│   │   └── shipment.controller.ts
+│   ├── db/
+│   │   └── db.ts
+│   ├── models/
+│   │   └── shipment.model.ts
+│   ├── routes/
+│   │   └── shipment.routes.ts
+│   └── index.ts
+├── .env
+├── .gitignore
 ├── package.json
-├── tsconfig.json       # TypeScript config
+├── tsconfig.json
 └── README.md
+
 ```
 
 
