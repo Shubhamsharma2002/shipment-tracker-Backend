@@ -2,23 +2,26 @@ import 'dotenv/config';
 import mongoose from 'mongoose';
 
 import Shipment from './Models/Shipment.models';
+import { StatusUpdate } from './Models/ShipmentStatus.model';
+
 
 if (!process.env.URI) {
-    throw new Error("URI not found in environment variables");
-  }
-if(!process.env.DB_NAME){
-    throw new Error("Db Name not found in environment variables");
+  throw new Error("URI not found in environment variables");
 }
-const DB_NAME : String = process.env.DB_NAME
-const URI : String= process.env.URI ;
+if (!process.env.DB_NAME) {
+  throw new Error("Db Name not found in environment variables");
+}
+const DB_NAME: string = process.env.DB_NAME;
+const URI: string = process.env.URI;
 
 const seedData = async () => {
   try {
-    await mongoose.connect(`${URI}/${DB_NAME}`)
+    await mongoose.connect(`${URI}/${DB_NAME}`);
     console.log('Connected to MongoDB');
 
     await Shipment.deleteMany();
-    console.log('Cleared old shipment data');
+    await StatusUpdate.deleteMany(); 
+    console.log('Cleared old shipment & status data');
 
     const shipments = [
       { _id: 'SH1001', productName: 'Laptop', deliveryAddress: '123 Main St, City, Country', origin: 'Warehouse A' },
@@ -33,8 +36,19 @@ const seedData = async () => {
       { _id: 'SH1010', productName: 'Mouse', deliveryAddress: '707 Oak St, City, Country', origin: 'Warehouse J' }
     ];
 
-    await Shipment.insertMany(shipments);
+    const insertedShipments = await Shipment.insertMany(shipments);
     console.log('Shipment data seeded!');
+
+    const statusUpdates = insertedShipments.map((shipment) => ({
+      shipmentId: shipment._id,
+      status: 'PICKUP',
+      location: shipment.origin,
+      timestamp: new Date(),
+    }));
+
+    await StatusUpdate.insertMany(statusUpdates);
+    console.log('Status updates created for all shipments');
+
     process.exit(0);
   } catch (error) {
     console.error('Seeding error:', error);
