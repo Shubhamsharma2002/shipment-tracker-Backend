@@ -18,7 +18,7 @@ app.use(express.json());
 app.get("/", (_req, res) => {
   res.send("Shipment Tracker API is running!");
 });
-// shipment routes
+// shipment routes for creating updating finding deleting by admin
 app.use("/api/v1/create",Shipmentrouter);
 // shipment status routes
 app.use('/api/v1', Statusrouter);

@@ -18,24 +18,31 @@ A simple backend API for tracking shipments and their statuses, built with **Exp
 # git clone https://github.com/your-username/shipment-tracker-backend.git
 # cd shipment-tracker-backend
 ```
+## Hosted Link
+
+You can access the live version of the application here:  
+[https://shipment-tracker.up.railway.app/](https://shipment-tracker.up.railway.app/)
 ## 📂 Project Structure
-```bash
 shipment-tracker-backend/
 ├── src/
 │   ├── controllers/
-│   │   └── shipment.controller.ts
+│   │   ├── shipment.controller.ts         # Shipment controller for managing shipments
+│   │   └── shipmentStatus.controller.ts   # Controller for managing shipment statuses
 │   ├── db/
-│   │   └── db.ts
+│   │   └── dbConnection.ts               # Database connection setup
 │   ├── models/
-│   │   └── shipment.model.ts
+│   │   ├── shipment.model.ts             # Shipment model schema
+│   │   └── shipmentStatus.model.ts       # Shipment status model schema
 │   ├── routes/
-│   │   └── shipment.routes.ts
-│   └── index.ts
-├── .env
-├── .gitignore
-├── package.json
-├── tsconfig.json
-└── README.md
+│   │   ├── index.ts                      # Root routes file (combines all routes)
+│   │   └── status.ts                     # Specific routes for shipment status operations
+│   ├── seed.ts                           # Database seeding script
+│   ├── index.ts                          # Main entry point for the backend server
+├── .env                                    # Environment variables (e.g., DB credentials)
+├── .gitignore                              # Git ignore file
+├── package.json                            # Project dependencies and scripts
+├── tsconfig.json                          # TypeScript configuration
+└── README.md                               # Project documentation
 
 ```
 
