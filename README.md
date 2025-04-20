@@ -23,6 +23,7 @@ A simple backend API for tracking shipments and their statuses, built with **Exp
 You can access the live version of the application here:  
 [https://shipment-tracker.up.railway.app/](https://shipment-tracker.up.railway.app/)
 ## 📂 Project Structure
+```bash
 shipment-tracker-backend/
 ├── src/
 │   ├── controllers/
