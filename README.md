@@ -15,7 +15,7 @@ A simple backend API for tracking shipments and their statuses, built with **Exp
 ### 1. Clone the Repo
 
 ```bash
-# git clone https://github.com/your-username/shipment-tracker-backend.git
+# git clone https://github.com/Shubhamsharma2002/shipment-tracker-Backend.git
 # cd shipment-tracker-backend
 ```
 ## Hosted Link
